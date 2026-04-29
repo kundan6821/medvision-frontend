@@ -197,7 +197,7 @@ async function searchMedicine() {
 
 function displayResults(data, isImageSearch = false) {
     if (data.error) {
-        searchResults.innerHTML = `<div class="error">${data.error}</div>`;
+        searchResults.innerHTML = `<div class="error">${data.message || data.error}</div>`;
         return;
     }
     
