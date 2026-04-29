@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedVision+ - AI-powered Pill Recognition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="ai-grid-background"></div>
+    <!-- Navigation Bar -->
+    <nav class="navbar glass-effect">
+        <div class="nav-container">
+            <div class="logo-container">
+                <i class="fas fa-pills logo-icon"></i>
+                <span class="logo-text">MedVision+</span>
+            </div>
+            <div class="nav-buttons" id="guestNav">
+                <button class="login-btn" id="navReminderBtnGuest"><i class="fas fa-bell"></i> Reminders</button>
+                <button class="login-btn" id="navLoginBtn">Login</button>
+                <button class="create-account-btn" id="navRegisterBtn">Create Account</button>
+            </div>
+            <div class="nav-buttons" id="authNav" style="display: none;">
+                <button class="login-btn" id="navReminderBtnAuth"><i class="fas fa-bell"></i> Reminders</button>
+                <button class="profile-btn" id="navProfileBtn"><i class="fas fa-user-circle"></i> <span id="navUserName">Profile</span></button>
+                <button class="logout-btn" id="navLogoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="icon-container">
+                <div class="holographic-ring"></div>
+                <i class="fas fa-heartbeat pulse-icon glow-icon"></i>
+
+            </div>
+            
+            <h1 class="hero-title reveal-up">The AI-Powered Medical Guardian</h1>
+            
+            <p class="hero-description reveal-up">
+                MedVision+ leverages bleeding-edge large language models to instantly parse pill composition directly from your camera, meticulously cross-checking every ingredient against your personalized allergy profile to guarantee your medical safety.
+            </p>
+
+            <div class="tech-stack reveal-up">
+                <div class="tech-item">
+                    <i class="fas fa-brain"></i>
+                    <span>LLM Parsing</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-allergies"></i>
+                    <span>Allergy Tracking</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Secure Profiles</span>
+                </div>
+            </div>
+
+            <button class="cta-button" id="openSearchBtn">
+                <i class="fas fa-search"></i> Search Medicine Info
+            </button>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="features-container">
+            <div class="feature-card glass-card reveal-up">
+                <div class="card-glow"></div>
+                <i class="fas fa-microscope feature-icon neon-icon"></i>
+                <h3 class="feature-title">LLM Deep Extraction</h3>
+                <p class="feature-text">
+                    Advanced Groq-powered AI reads and understands complex pharmaceutical compositions accurately.
+                </p>
+            </div>
+            
+            <div class="feature-card glass-card reveal-up">
+                <div class="card-glow"></div>
+                <i class="fas fa-user-shield feature-icon neon-icon"></i>
+                <h3 class="feature-title">Smart Health Profiles</h3>
+                <p class="feature-text">
+                    Secure JWT authentication lets you maintain an evolving dashboard of your medical constraints.
+                </p>
+            </div>
+            
+            <div class="feature-card glass-card reveal-up">
+                <div class="card-glow"></div>
+                <i class="fas fa-bell feature-icon neon-icon"></i>
+                <h3 class="feature-title">Allergy Detection</h3>
+                <p class="feature-text">
+                    Instant clash-detection algorithms automatically warn you if a scanned medicine violates your profile.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section (Static) -->
+    <section class="pill-scan-section">
+        <div class="scan-container">
+            <h2 class="scan-title">How MedVision+ Works</h2>
+            <div class="static-steps">
+                <div class="static-step">
+                    <div class="step-icon-wrap"><i class="fas fa-camera"></i></div>
+                    <div class="step-number">01</div>
+                    <h3>Snap or Search</h3>
+                    <p>Upload a pill image or type a medicine name to get started instantly.</p>
+                </div>
+                <div class="step-divider"><i class="fas fa-chevron-right"></i></div>
+                <div class="static-step">
+                    <div class="step-icon-wrap"><i class="fas fa-brain"></i></div>
+                    <div class="step-number">02</div>
+                    <h3>AI Analysis</h3>
+                    <p>Groq-powered LLM extracts full composition, dosage, and usage data.</p>
+                </div>
+                <div class="step-divider"><i class="fas fa-chevron-right"></i></div>
+                <div class="static-step">
+                    <div class="step-icon-wrap"><i class="fas fa-shield-alt"></i></div>
+                    <div class="step-number">03</div>
+                    <h3>Safety Check</h3>
+                    <p>Cross-checks ingredients against your personal allergy profile in real-time.</p>
+                </div>
+                <div class="step-divider"><i class="fas fa-chevron-right"></i></div>
+                <div class="static-step">
+                    <div class="step-icon-wrap"><i class="fas fa-bell"></i></div>
+                    <div class="step-number">04</div>
+                    <h3>Get Reminded</h3>
+                    <p>Set medicine reminders and get alerted right on time, every time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="about-content">
+            <h2 class="about-title reveal-up">About MedVision+</h2>
+            <p class="about-text reveal-up">
+                MedVision+ represents the next generation of personalized healthcare technology. What started as simple optical object recognition has scaled into a secure, full-stack AI ecosystem. By coupling blazing-fast hardware inferencing directly with your personal allergy constraints, we drastically minimize the risk of catastrophic medication errors.
+            </p>
+            
+            <div class="stats-container reveal-up">
+                <div class="stat-item holographic-stat">
+                    <span class="stat-number neon-text">&lt;1min</span>
+                    <span class="stat-label">Response Time</span>
+                </div>
+                <div class="stat-item holographic-stat">
+                    <span class="stat-number neon-text">AI</span>
+                    <span class="stat-label">Powered Backend</span>
+                </div>
+                <div class="stat-item holographic-stat">
+                    <span class="stat-number neon-text">Zero</span>
+                    <span class="stat-label">Allergy Breaches</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">© MedVision+. Advancing healthcare through AI innovation.</p>
+    </footer>
+
+    <!-- Medicine Search Modal -->
+    <div id="searchModal" class="modal">
+        <div class="modal-content glass-card">
+            <span class="close-modal">&times;</span>
+            <h2 class="modal-title">Medicine Information Search</h2>
+            
+            <!-- Search Method Tabs -->
+            <div class="search-method-tabs">
+                <button id="textSearchTab" class="method-tab active">
+                    <i class="fas fa-keyboard"></i>
+                    <span>Search by Name</span>
+                </button>
+                <button id="imageSearchTab" class="method-tab">
+                    <i class="fas fa-camera"></i>
+                    <span>Upload Image</span>
+                </button>
+            </div>
+            
+            <!-- Search Sections -->
+            <div class="search-sections">
+                <!-- Text Search Section -->
+                <div id="textSearchSection" class="search-method active">
+                    <div class="search-input-group">
+                        <div class="input-wrapper">
+                            <i class="fas fa-pills input-icon"></i>
+                            <input type="text" id="medicineInput" placeholder="Enter medicine name (e.g., Paracetamol)" class="search-input">
+                        </div>
+                        <button id="searchBtn" class="action-btn primary">
+                            <i class="fas fa-search"></i>
+                            Search
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Image Upload Section -->
+                <div id="imageSearchSection" class="search-method">
+                    <div class="upload-section">
+                        <div class="upload-zone" id="uploadArea">
+                            <div class="upload-content">
+                                <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                                <h4 class="upload-title">Upload Medicine Image</h4>
+                                <p class="upload-description">Click to browse or drag & drop your image here</p>
+                                <div class="upload-specs">
+                                    <span class="spec-item"><i class="fas fa-check"></i> JPG, PNG supported</span>
+                                    <span class="spec-item"><i class="fas fa-check"></i> Max 5MB</span>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="file" id="imageInput" accept="image/*" style="display: none;">
+                        <button id="uploadBtn" class="action-btn primary" disabled>
+                            <i class="fas fa-eye"></i>
+                            Analyze Image
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Results Container -->
+            <div id="searchResults" class="results-container"></div>
+        </div>
+    </div>
+
+    <!-- Auth Modals -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content glass-card auth-modal">
+            <span class="close-modal">&times;</span>
+            <h2 class="modal-title">Welcome Back</h2>
+            <div class="input-wrapper">
+                <i class="fas fa-envelope input-icon"></i>
+                <input type="email" id="loginEmail" placeholder="Email Address" class="search-input">
+            </div>
+            <div class="input-wrapper" style="margin-top: 15px;">
+                <i class="fas fa-lock input-icon"></i>
+                <input type="password" id="loginPassword" placeholder="Password" class="search-input">
+            </div>
+            <button id="doLoginBtn" class="action-btn primary" style="width: 100%; margin-top: 20px;">Sign In</button>
+            <p style="text-align:center; margin-top: 15px; color:#a0aec0;">Don't have an account? <a href="#" id="switchToRegister" style="color:#4A90E2;">Register</a></p>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content glass-card auth-modal">
+            <span class="close-modal">&times;</span>
+            <h2 class="modal-title">Create Account</h2>
+            <div class="input-wrapper">
+                <i class="fas fa-user input-icon"></i>
+                <input type="text" id="regName" placeholder="Full Name" class="search-input">
+            </div>
+            <div class="input-wrapper" style="margin-top: 15px;">
+                <i class="fas fa-envelope input-icon"></i>
+                <input type="email" id="regEmail" placeholder="Email Address" class="search-input">
+            </div>
+            <div class="input-wrapper" style="margin-top: 15px;">
+                <i class="fas fa-lock input-icon"></i>
+                <input type="password" id="regPassword" placeholder="Password (min 6 chars)" class="search-input">
+            </div>
+            <button id="doRegisterBtn" class="action-btn primary" style="width: 100%; margin-top: 20px;">Sign Up</button>
+            <p style="text-align:center; margin-top: 15px; color:#a0aec0;">Already have an account? <a href="#" id="switchToLogin" style="color:#4A90E2;">Log In</a></p>
+        </div>
+    </div>
+
+    <!-- Profile & Allergy Dashboard Modal -->
+    <div id="profileModal" class="modal">
+        <div class="modal-content glass-card profile-modal-v2">
+            <span class="close-modal">&times;</span>
+
+            <!-- Header Banner -->
+            <div class="profile-header-banner">
+                <div class="profile-avatar-ring">
+                    <div class="profile-avatar"><i class="fas fa-user"></i></div>
+                </div>
+                <div class="profile-header-info">
+                    <h2 id="profileName">User Profile</h2>
+                    <p id="profileEmail"></p>
+                </div>
+
+            </div>
+
+            <!-- Body -->
+            <div class="profile-body">
+                <div class="allergy-panel">
+                    <div class="allergy-panel-header">
+                        <div class="allergy-panel-title">
+                            <i class="fas fa-dna"></i>
+                            <span>Medical Allergy Profile</span>
+                        </div>
+                        <div class="allergy-count-badge" id="allergyCountBadge">0 Logged</div>
+                    </div>
+
+                    <p class="allergy-panel-desc">Our AI Health Guard cross-checks every medicine scan against your allergy profile in real-time.</p>
+
+                    <div class="allergy-input-row">
+                        <div class="allergy-input-wrap">
+                            <i class="fas fa-plus-circle allergy-input-icon"></i>
+                            <input type="text" id="newAllergyInput" placeholder="Add allergy (e.g. Penicillin, Aspirin)" class="allergy-input" />
+                        </div>
+                        <button id="addAllergyBtn" class="allergy-add-btn">
+                            <i class="fas fa-plus"></i> Add
+                        </button>
+                    </div>
+
+                    <div id="allergyTagsContainer" class="allergy-tags-grid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reminder Modal -->
+    <div id="reminderModal" class="modal">
+        <div class="modal-content glass-card" style="max-width:500px; padding:0; border-radius:20px; overflow:hidden;">
+            <span class="close-modal">&times;</span>
+            <div style="padding:30px 30px 0;">
+                <h2 class="modal-title" style="padding:0; border:none; margin-bottom:20px;"><i class="fas fa-bell" style="color:#00FFFF; margin-right:10px;"></i>Medicine Reminders</h2>
+            </div>
+            <div style="padding:0 30px 10px;">
+                <div style="display:flex; gap:10px; margin-bottom:10px;">
+                    <div class="input-wrapper" style="flex:2;">
+                        <i class="fas fa-pills input-icon"></i>
+                        <input type="text" id="reminderMedicine" placeholder="Medicine name" class="search-input">
+                    </div>
+                    <div class="input-wrapper" style="flex:1;">
+                        <i class="fas fa-clock input-icon"></i>
+                        <input type="time" id="reminderTime" class="search-input" style="padding-left:45px;">
+                    </div>
+                </div>
+                <button id="addReminderBtn" class="action-btn primary" style="width:100%; margin-bottom:10px;">
+                    <i class="fas fa-plus"></i> Add Reminder
+                </button>
+                <button onclick="playFaahLoop()" class="action-btn" style="width:100%; margin-bottom:10px; background:rgba(0,255,255,0.1); border:1px solid rgba(0,255,255,0.3); color:#00FFFF;">
+                    <i class="fas fa-volume-up"></i> Test Alarm Sound
+                </button>
+                <button onclick="stopFaahLoop()" class="action-btn" style="width:100%; margin-bottom:20px; background:rgba(231,76,60,0.1); border:1px solid rgba(231,76,60,0.3); color:#ff6b81;">
+                    <i class="fas fa-stop"></i> Stop Alarm Sound
+                </button>
+            </div>
+            <div id="reminderList" style="max-height:300px; overflow-y:auto; padding:0 30px 30px;"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
