@@ -119,7 +119,7 @@ async function analyzeImage() {
         const data = await response.json();
         
         if (!response.ok) {
-            throw new Error(data.error || 'Failed to analyze image');
+            throw new Error(data.message || (typeof data.error === 'string' ? data.error : 'Failed to analyze image'));
         }
         
         displayResults(data, true);
@@ -181,7 +181,7 @@ async function searchMedicine() {
         const data = await response.json();
         
         if (!response.ok) {
-            throw new Error(data.error || 'Failed to fetch medicine information');
+            throw new Error(data.message || (typeof data.error === 'string' ? data.error : 'Failed to fetch medicine information'));
         }
         
         displayResults(data, false);
