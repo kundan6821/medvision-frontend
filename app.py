@@ -33,7 +33,11 @@ def search_medicine():
         
     try:
         response = requests.get(f'{MEDICINE_API_URL}/info', params={'name': medicine_name}, headers=headers)
-        return jsonify(response.json()), response.status_code
+        try:
+            data = response.json()
+        except ValueError:
+            return jsonify({'error': f'Backend service is temporarily unavailable (Status {response.status_code}). Please try again.'}), 502
+        return jsonify(data), response.status_code
     except requests.exceptions.ConnectionError:
         return jsonify({'error': 'Medicine API service is not available. Please ensure the backend is running on port 3000.'}), 503
     except Exception as e:
@@ -56,7 +60,11 @@ def upload_medicine_image():
             
         files = {'image': (file.filename, file.stream, file.mimetype)}
         response = requests.post(f'{MEDICINE_API_URL}/upload', files=files, headers=headers)
-        return jsonify(response.json()), response.status_code
+        try:
+            data = response.json()
+        except ValueError:
+            return jsonify({'error': f'Backend service is temporarily unavailable (Status {response.status_code}). Please try again.'}), 502
+        return jsonify(data), response.status_code
     except requests.exceptions.ConnectionError:
         return jsonify({'error': 'Medicine API service is not available. Please ensure the backend is running on port 3000.'}), 503
     except Exception as e:
