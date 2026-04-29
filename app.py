@@ -3,7 +3,7 @@ import requests, json, os
 
 app = Flask(__name__)
 
-MEDICINE_API_URL = os.environ.get('BACKEND_URL', 'https://medvision-backend.onrender.com/api/medicine')
+MEDICINE_API_URL = os.environ.get('BACKEND_URL', 'https://medvision-backend-egoh.onrender.com/api/medicine')
 REMINDERS_FILE = os.path.join(os.path.dirname(__file__), 'reminders.json')
 
 def load_reminders():

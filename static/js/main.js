@@ -481,7 +481,7 @@ const authNav = document.getElementById('authNav');
 const navUserName = document.getElementById('navUserName');
 
 // API URL (Node Server)
-const AUTH_API = 'https://medvision-backend.onrender.com/api';
+const AUTH_API = 'https://medvision-backend-egoh.onrender.com/api';
 
 // State
 let currentUser = null;
