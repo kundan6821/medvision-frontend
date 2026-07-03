@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: linear-gradient(135deg, #08080a 0%, #111114 50%, #08080a 100%);
+    background: #0B0F17;
     color: #E2E8F0;
     line-height: 1.6;
     position: relative;
@@ -43,20 +43,20 @@ h1, h2, h3, h4, h5, h6, .logo-text, .scan-title, .feature-title, .sandbox-title 
 
 /* Navigation */
 .navbar {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
-    padding: 15px 0;
+    background: rgba(11, 15, 23, 0.5);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 18px 0;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 4px 30px rgba(0, 255, 255, 0.1);
+    box-shadow: none;
 }
 
 .glass-effect {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .nav-container {
@@ -100,44 +100,45 @@ h1, h2, h3, h4, h5, h6, .logo-text, .scan-title, .feature-title, .sandbox-title 
 }
 
 .login-btn {
-    padding: 8px 20px;
+    padding: 8px 16px;
     background: transparent;
-    border: 1px solid rgba(0, 255, 255, 0.5);
-    color: #00FFFF;
-    font-size: 16px;
+    border: none;
+    color: #A1A1AA;
+    font-size: 15px;
     font-weight: 500;
     cursor: pointer;
-    border-radius: 25px;
-    transition: all 0.3s;
+    border-radius: 6px;
+    transition: all 0.2s ease;
 }
 
 .login-btn:hover {
-    background: rgba(0, 255, 255, 0.1);
-    box-shadow: 0 0 5px rgba(0, 255, 255, 0.15);
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: none;
 }
 
 .create-account-btn {
-    padding: 10px 20px;
-    background: linear-gradient(135deg, #0070F3 0%, #00FFFF 100%);
-    border: none;
+    padding: 8px 18px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     color: #FFFFFF;
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 15px;
+    font-weight: 500;
     cursor: pointer;
-    border-radius: 25px;
-    transition: all 0.3s;
-    box-shadow: 0 0 5px rgba(0, 255, 255, 0.15);
+    border-radius: 6px;
+    transition: all 0.2s ease;
 }
 
 .create-account-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-1px);
 }
 
 /* Hero Section */
 .hero-section {
-    background: linear-gradient(135deg, rgba(10, 14, 39, 0.9) 0%, rgba(26, 31, 58, 0.8) 50%, rgba(15, 23, 41, 0.9) 100%);
-    padding: 60px 20px;
+    background: #0B0F17;
+    padding: 0;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -150,8 +151,9 @@ h1, h2, h3, h4, h5, h6, .logo-text, .scan-title, .feature-title, .sandbox-title 
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
-    animation: rotate 20s linear infinite;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.01) 0%, transparent 70%);
+    animation: rotate 40s linear infinite;
+    pointer-events: none;
 }
 
 @keyframes rotate {
@@ -214,12 +216,12 @@ h1, h2, h3, h4, h5, h6, .logo-text, .scan-title, .feature-title, .sandbox-title 
 }
 
 .hero-title {
-    font-size: 32px;
-    font-weight: 700;
+    font-size: 48px;
+    font-weight: 800;
     color: #FFFFFF;
     margin-bottom: 20px;
-    line-height: 1.2;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
     animation: fadeInUp 1s ease-out;
 }
 
@@ -229,10 +231,10 @@ h1, h2, h3, h4, h5, h6, .logo-text, .scan-title, .feature-title, .sandbox-title 
 }
 
 .hero-description {
-    font-size: 18px;
-    color: #B0C4DE;
+    font-size: 16px;
+    color: #94A3B8;
     margin-bottom: 40px;
-    line-height: 1.4;
+    line-height: 1.6;
     animation: fadeInUp 1s ease-out 0.2s both;
 }
 
@@ -250,18 +252,27 @@ h1, h2, h3, h4, h5, h6, .logo-text, .scan-title, .feature-title, .sandbox-title 
     gap: 5px;
 }
 
-.tech-item i {
-    font-size: 20px;
-    color: #00FFFF;
-    filter: drop-shadow(0 0 3px rgba(0, 255, 255, 0.2));
-    animation: iconPulse 2s ease-in-out infinite;
+.tech-icon {
+    width: 22px;
+    height: 22px;
+    stroke: #71717A;
+    margin-bottom: 6px;
+    transition: stroke 0.3s ease;
+}
+
+.tech-item:hover .tech-icon {
+    stroke: #A1A1AA;
 }
 
 .tech-item span {
-    font-size: 14px;
-    color: #00FFFF;
-    font-weight: 600;
-    text-shadow: 0 0 3px rgba(0, 255, 255, 0.2);
+    font-size: 13px;
+    color: #71717A;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.tech-item:hover span {
+    color: #A1A1AA;
 }
 
 /* Features Section */
@@ -1186,22 +1197,22 @@ h1, h2, h3, h4, h5, h6, .logo-text, .scan-title, .feature-title, .sandbox-title 
     background: rgba(0, 255, 255, 0.6);
 }
 .cta-button {
-    padding: 15px 40px;
-    background: linear-gradient(135deg, #0070F3 0%, #00FFFF 100%);
+    padding: 15px 36px;
+    background: linear-gradient(135deg, #0D9488 0%, #0F766E 100%);
     border: none;
     color: #FFFFFF;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     border-radius: 30px;
-    transition: all 0.3s;
-    box-shadow: 0 5px 20px rgba(0, 255, 255, 0.3);
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(13, 148, 136, 0.2);
     animation: fadeInUp 1s ease-out 0.4s both;
 }
 
 .cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(0, 255, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(13, 148, 136, 0.3);
 }
 
 .cta-button i {
@@ -2270,9 +2281,9 @@ h1, h2, h3, h4, h5, h6, .logo-text, .scan-title, .feature-title, .sandbox-title 
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
-    gap: 40px;
+    gap: 60px;
     align-items: center;
-    padding: 60px 20px 80px;
+    padding: 100px 20px 140px;
 }
 .hero-section {
     display: block;
@@ -2297,21 +2308,22 @@ h1, h2, h3, h4, h5, h6, .logo-text, .scan-title, .feature-title, .sandbox-title 
     gap: 8px;
     padding: 15px 36px;
     border-radius: 30px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
-    color: #00FFFF;
-    background: rgba(0, 255, 255, 0.05);
-    border: 1px solid rgba(0, 255, 255, 0.3);
+    color: #E4E4E7;
+    background: transparent;
+    border: 1px solid #3F3F46;
     text-decoration: none;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     animation: fadeInUp 1s ease-out 0.4s both;
 }
 .secondary-cta-btn:hover {
-    background: rgba(0, 255, 255, 0.15);
-    border-color: #00FFFF;
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.03);
+    border-color: #71717A;
+    color: #FFFFFF;
     transform: translateY(-2px);
+    box-shadow: none;
 }
 
 /* Smartphone Scanner Mockup */
@@ -2326,9 +2338,9 @@ h1, h2, h3, h4, h5, h6, .logo-text, .scan-title, .feature-title, .sandbox-title 
     height: 580px;
     border-radius: 40px;
     padding: 12px;
-    border: 2px solid rgba(0, 255, 255, 0.3);
-    background: rgba(13, 17, 23, 0.6);
-    box-shadow: 0 25px 50px -12px rgba(0, 255, 255, 0.15), 0 0 30px rgba(0, 255, 255, 0.1) inset;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(24, 24, 27, 0.6);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
     transform: rotateY(-10deg) rotateX(5deg);
     transition: transform 0.5s ease;
 }
