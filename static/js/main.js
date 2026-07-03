@@ -76,7 +76,7 @@ function handleFileSelect(file) {
     selectedFile = file;
     uploadArea.innerHTML = `
         <div class="upload-content">
-            <i class="fas fa-check-circle upload-icon" style="color: #00FFFF;"></i>
+            <i class="fas fa-check-circle upload-icon" style="color: #0D9488;"></i>
             <h4 class="upload-title">File Selected</h4>
             <p class="upload-description">${file.name}</p>
             <div class="upload-specs">
@@ -269,9 +269,9 @@ function displayResults(data, isImageSearch = false) {
     
     // Quick Reset Button for Text Search
     if (!isImageSearch) {
-        html += '<div style="padding: 15px; border-bottom: 1px solid rgba(0, 255, 255, 0.1); display: flex; justify-content: space-between; align-items: center;">';
-        html += '<h3 style="margin: 0; color: #00FFFF; font-size: 16px;"><i class="fas fa-clipboard-list"></i> Search Results</h3>';
-        html += '<button onclick="resetSearch()" style="padding: 8px 16px; background: rgba(0, 255, 255,0.2); border: 1px solid rgba(0, 255, 255,0.4); color: #00FFFF; border-radius: 8px; cursor: pointer; font-size: 12px; transition: all 0.3s;" onmouseover="this.style.background=\'rgba(0, 255, 255,0.3)\'" onmouseout="this.style.background=\'rgba(0, 255, 255,0.2)\'">';
+        html += '<div style="padding: 15px; border-bottom: 1px solid rgba(13, 148, 136, 0.1); display: flex; justify-content: space-between; align-items: center;">';
+        html += '<h3 style="margin: 0; color: #0D9488; font-size: 16px;"><i class="fas fa-clipboard-list"></i> Search Results</h3>';
+        html += '<button onclick="resetSearch()" style="padding: 8px 16px; background: rgba(13, 148, 136,0.2); border: 1px solid rgba(13, 148, 136,0.4); color: #0D9488; border-radius: 8px; cursor: pointer; font-size: 12px; transition: all 0.3s;" onmouseover="this.style.background=\'rgba(13, 148, 136,0.3)\'" onmouseout="this.style.background=\'rgba(13, 148, 136,0.2)\'">';
         html += '<i class="fas fa-search"></i> Search Another';
         html += '</button>';
         html += '</div>';
@@ -279,10 +279,10 @@ function displayResults(data, isImageSearch = false) {
     
     // OCR Results (for image search)
     if (isImageSearch && ocrInfo) {
-        html += '<div class="result-section" style="background: rgba(0, 255, 255, 0.1); border: 1px solid rgba(0, 255, 255, 0.3);">';
+        html += '<div class="result-section" style="background: rgba(13, 148, 136, 0.1); border: 1px solid rgba(13, 148, 136, 0.3);">';
         html += '<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">';
         html += '<h3 style="margin: 0;"><i class="fas fa-eye"></i> Image Analysis Results</h3>';
-        html += '<button onclick="resetSearch()" style="padding: 8px 16px; background: rgba(0, 255, 255,0.2); border: 1px solid rgba(0, 255, 255,0.4); color: #00FFFF; border-radius: 8px; cursor: pointer; font-size: 12px; transition: all 0.3s;" onmouseover="this.style.background=\'rgba(0, 255, 255,0.3)\'" onmouseout="this.style.background=\'rgba(0, 255, 255,0.2)\'">';
+        html += '<button onclick="resetSearch()" style="padding: 8px 16px; background: rgba(13, 148, 136,0.2); border: 1px solid rgba(13, 148, 136,0.4); color: #0D9488; border-radius: 8px; cursor: pointer; font-size: 12px; transition: all 0.3s;" onmouseover="this.style.background=\'rgba(13, 148, 136,0.3)\'" onmouseout="this.style.background=\'rgba(13, 148, 136,0.2)\'">';
         html += '<i class="fas fa-search"></i> Search Another';
         html += '</button>';
         html += '</div>';
@@ -296,8 +296,8 @@ function displayResults(data, isImageSearch = false) {
             html += '<div style="margin-top: 15px; padding: 10px; background: rgba(255, 165, 0, 0.1); border-radius: 8px;">';
             html += '<p style="color: #FFA726; font-size: 13px; margin-bottom: 10px;"><i class="fas fa-exclamation-triangle"></i> Low confidence detected. You can correct the medicine name:</p>';
             html += '<div style="display: flex; gap: 10px;">';
-            html += `<input type="text" id="correctedName" value="${ocrInfo.detected_medicine}" style="flex: 1; padding: 8px; background: rgba(255,255,255,0.1); border: 1px solid rgba(0, 255, 255,0.3); border-radius: 5px; color: white;">`;
-            html += '<button onclick="searchCorrectedName()" style="padding: 8px 15px; background: linear-gradient(135deg, #0070F3 0%, #00FFFF 100%); border: none; color: white; border-radius: 5px; cursor: pointer;">Search</button>';
+            html += `<input type="text" id="correctedName" value="${ocrInfo.detected_medicine}" style="flex: 1; padding: 8px; background: rgba(255,255,255,0.1); border: 1px solid rgba(13, 148, 136,0.3); border-radius: 5px; color: white;">`;
+            html += '<button onclick="searchCorrectedName()" style="padding: 8px 15px; background: linear-gradient(135deg, #0F766E 0%, #0D9488 100%); border: none; color: white; border-radius: 5px; cursor: pointer;">Search</button>';
             html += '</div>';
             html += '</div>';
         }
@@ -361,10 +361,10 @@ function displayResults(data, isImageSearch = false) {
         html += '</div>';
         
         if (medicineInfo.common_uses) {
-            html += `<p style="margin-top: 15px;"><strong style="color: #00FFFF;">Common Uses:</strong> ${medicineInfo.common_uses}</p>`;
+            html += `<p style="margin-top: 15px;"><strong style="color: #0D9488;">Common Uses:</strong> ${medicineInfo.common_uses}</p>`;
         }
         if (medicineInfo.dosage_guidance) {
-            html += `<p style="margin-top: 10px;"><strong style="color: #00FFFF;">Dosage Guidance:</strong> ${medicineInfo.dosage_guidance}</p>`;
+            html += `<p style="margin-top: 10px;"><strong style="color: #0D9488;">Dosage Guidance:</strong> ${medicineInfo.dosage_guidance}</p>`;
         }
         
         html += '</div>';
@@ -398,7 +398,7 @@ function displayResults(data, isImageSearch = false) {
     if (alternatives.length > 0) {
         html += '<div class="result-section">';
         html += '<h3><i class="fas fa-exchange-alt"></i> Substitutes (Same Composition) - Sorted by Price</h3>';
-        html += '<p style="color: #00FFFF; margin-bottom: 15px; font-size: 14px;">These medicines have the same active ingredient(s) and can be used as substitutes:</p>';
+        html += '<p style="color: #0D9488; margin-bottom: 15px; font-size: 14px;">These medicines have the same active ingredient(s) and can be used as substitutes:</p>';
         
         // Get current medicine price for comparison
         const currentMedicine = medicineInfo.brand_name;
@@ -419,7 +419,7 @@ function displayResults(data, isImageSearch = false) {
                 html += `<span style="display: block; font-size: 11px; color: #FFA500; margin-top: 3px;">⚠ AI Suggested${hasApproxPrice ? ' - Price is approximate' : ' - Verify with pharmacist'}</span>`;
             }
             // Comparison info
-            html += `<span style="display: block; font-size: 11px; color: #00FFFF; margin-top: 5px;">`;
+            html += `<span style="display: block; font-size: 11px; color: #0D9488; margin-top: 5px;">`;
             html += `✓ Same composition: ${currentComposition}`;
             if (alt.strength && currentStrength && alt.strength === currentStrength) {
                 html += ` | ✓ Same strength: ${currentStrength}`;
@@ -804,10 +804,10 @@ function renderReminderList(reminders) {
         return;
     }
     list.innerHTML = reminders.map(r => `
-        <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(0, 255, 255,0.06); border:1px solid rgba(0, 255, 255,0.2); border-radius:12px; padding:14px 18px; margin-bottom:10px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(13, 148, 136,0.06); border:1px solid rgba(13, 148, 136,0.2); border-radius:12px; padding:14px 18px; margin-bottom:10px;">
             <div>
-                <span style="color:#fff; font-weight:600; font-size:15px;"><i class="fas fa-pills" style="color:#00FFFF; margin-right:8px;"></i>${r.medicine}</span>
-                <span style="display:block; color:#00FFFF; font-size:13px; margin-top:4px;"><i class="fas fa-clock" style="margin-right:6px;"></i>${r.time}</span>
+                <span style="color:#fff; font-weight:600; font-size:15px;"><i class="fas fa-pills" style="color:#0D9488; margin-right:8px;"></i>${r.medicine}</span>
+                <span style="display:block; color:#0D9488; font-size:13px; margin-top:4px;"><i class="fas fa-clock" style="margin-right:6px;"></i>${r.time}</span>
             </div>
             <button onclick="deleteReminder(${r.id})" style="background:rgba(231,76,60,0.15); border:1px solid rgba(231,76,60,0.4); color:#ff6b81; border-radius:8px; padding:8px 12px; cursor:pointer; font-size:13px; transition:all 0.2s;" onmouseover="this.style.background='rgba(231,76,60,0.3)'" onmouseout="this.style.background='rgba(231,76,60,0.15)'">
                 <i class="fas fa-trash"></i>
@@ -899,7 +899,7 @@ function showReminderAlert(medicine) {
             <div style="font-size:32px;">💊</div>
             <div>
                 <div style="font-size:16px; font-weight:700; color:#fff;">Medicine Reminder</div>
-                <div style="font-size:14px; color:#00FFFF; margin-top:3px;">Time to take: <strong>${medicine}</strong></div>
+                <div style="font-size:14px; color:#0D9488; margin-top:3px;">Time to take: <strong>${medicine}</strong></div>
             </div>
         </div>
         <button onclick="stopFaahLoop(); document.getElementById('reminderAlertBanner').remove();" style="background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3); color:#fff; border-radius:8px; padding:8px 16px; cursor:pointer; font-size:13px; white-space:nowrap;">Dismiss</button>
@@ -910,14 +910,14 @@ function showReminderAlert(medicine) {
         right: '30px',
         zIndex: '9999',
         background: 'linear-gradient(135deg, rgba(74,144,226,0.95), rgba(0,200,200,0.95))',
-        border: '1px solid rgba(0, 255, 255,0.5)',
+        border: '1px solid rgba(13, 148, 136,0.5)',
         borderRadius: '16px',
         padding: '20px 24px',
         display: 'flex',
         alignItems: 'center',
         gap: '20px',
         justifyContent: 'space-between',
-        boxShadow: '0 8px 32px rgba(0, 255, 255,0.4)',
+        boxShadow: '0 8px 32px rgba(13, 148, 136,0.4)',
         maxWidth: '380px',
         animation: 'slideInBanner 0.4s ease-out'
     });
@@ -946,7 +946,7 @@ if (sandboxCheckBtn) {
         resultContainer.style.display = 'block';
         resultContainer.innerHTML = `
             <div class="sandbox-result-card" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff;">
-                <div class="sandbox-result-title"><i class="fas fa-spinner fa-spin" style="color:#00FFFF;"></i> Running simulated clash analysis...</div>
+                <div class="sandbox-result-title"><i class="fas fa-spinner fa-spin" style="color:#0D9488;"></i> Running simulated clash analysis...</div>
             </div>
         `;
 
