@@ -1182,7 +1182,6 @@ h1, h2, h3, h4, h5, h6, .logo-text, .scan-title, .feature-title, .sandbox-title 
     background: rgba(0, 255, 255, 0.6);
 }
 .cta-button {
-    margin-top: 30px;
     padding: 15px 40px;
     background: linear-gradient(135deg, #4A90E2 0%, #00FFFF 100%);
     border: none;
@@ -2290,10 +2289,11 @@ h1, h2, h3, h4, h5, h6, .logo-text, .scan-title, .feature-title, .sandbox-title 
 .secondary-cta-btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
-    padding: 12px 28px;
-    border-radius: 50px;
-    font-size: 16px;
+    padding: 15px 36px;
+    border-radius: 30px;
+    font-size: 18px;
     font-weight: 600;
     color: #00FFFF;
     background: rgba(0, 255, 255, 0.05);
@@ -2301,6 +2301,7 @@ h1, h2, h3, h4, h5, h6, .logo-text, .scan-title, .feature-title, .sandbox-title 
     text-decoration: none;
     cursor: pointer;
     transition: all 0.3s ease;
+    animation: fadeInUp 1s ease-out 0.4s both;
 }
 .secondary-cta-btn:hover {
     background: rgba(0, 255, 255, 0.15);
