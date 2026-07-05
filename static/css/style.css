@@ -3827,3 +3827,41 @@ p, span, label, .feature-text, .static-step p, .about-text, .footer-text, .panel
     }
 }
 
+/* ==========================================
+   THEME COMPATIBILITY OVERRIDES (LIGHT MODE)
+   ========================================== */
+
+/* Input Fields & Placeholders */
+.search-input {
+    background: var(--capsule-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+.search-input::placeholder {
+    color: var(--text-muted) !important;
+    opacity: 0.6 !important;
+}
+
+/* Results Content Values */
+.info-value {
+    color: var(--text-primary) !important;
+}
+
+/* Alternatives & Suggestions */
+.alternative-name {
+    color: var(--text-primary) !important;
+}
+.alternative-price {
+    color: var(--text-primary) !important;
+    text-shadow: none !important;
+}
+.alternative-item {
+    border: 1px solid var(--border-color) !important;
+}
+
+/* Loading Indicator Text */
+.loading {
+    color: var(--text-primary) !important;
+}
+
+
