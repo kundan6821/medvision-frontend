@@ -1040,3 +1040,64 @@ if (themeToggleBtn) {
         }
     });
 }
+
+// ---- Navigation Capsule Link Active State & Smooth Scroll ----
+const navCapsuleLinks = document.querySelectorAll('.nav-capsule-link');
+navCapsuleLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        const targetId = link.getAttribute('href');
+        if (targetId && targetId.startsWith('#')) {
+            e.preventDefault();
+            // Remove active class from all links
+            navCapsuleLinks.forEach(l => l.classList.remove('active'));
+            // Add active class to clicked link
+            link.classList.add('active');
+            
+            // Scroll smoothly
+            const targetEl = document.querySelector(targetId === '#' ? 'body' : targetId);
+            if (targetEl) {
+                targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    });
+});
+
+// ---- Navigation Section Observer ----
+const observerOptions = {
+    root: null,
+    rootMargin: '-30% 0px -60% 0px', // Trigger when section occupies the active zone
+    threshold: 0
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            const correspondingLink = document.querySelector(`.nav-capsule-link[href="#${id}"]`);
+            if (correspondingLink) {
+                navCapsuleLinks.forEach(l => l.classList.remove('active'));
+                correspondingLink.classList.add('active');
+            } else if (id === 'hero-section') {
+                navCapsuleLinks.forEach(l => l.classList.remove('active'));
+                const homeLink = document.querySelector('.nav-capsule-link[href="#"]');
+                if (homeLink) homeLink.classList.add('active');
+            }
+        }
+    });
+}, observerOptions);
+
+// Observe major sections
+const heroSection = document.querySelector('.hero-section');
+if (heroSection) {
+    heroSection.setAttribute('id', 'hero-section');
+    observer.observe(heroSection);
+}
+const sandboxSection = document.getElementById('sandbox-anchor');
+if (sandboxSection) {
+    observer.observe(sandboxSection);
+}
+const aboutSection = document.getElementById('about-anchor');
+if (aboutSection) {
+    observer.observe(aboutSection);
+}
+
