@@ -17,21 +17,32 @@
     <div class="glow-orb orb-3"></div>
 
     <!-- Navigation Bar -->
-    <nav class="navbar glass-effect">
+    <nav class="navbar">
         <div class="nav-container">
             <div class="logo-container">
-                <i class="fas fa-pills logo-icon"></i>
+                <svg class="logo-asterisk" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="2" x2="12" y2="22"></line>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <line x1="19.07" y1="4.93" x2="4.93" y2="19.07"></line>
+                    <line x1="19.07" y1="19.07" x2="4.93" y2="4.93"></line>
+                </svg>
                 <span class="logo-text">MedVision+</span>
             </div>
-            <div class="nav-buttons" id="guestNav">
-                <button class="login-btn" id="navReminderBtnGuest"><i class="fas fa-bell"></i> Reminders</button>
-                <button class="login-btn" id="navLoginBtn">Login</button>
-                <button class="create-account-btn" id="navRegisterBtn">Create Account</button>
+            
+            <div class="nav-capsule">
+                <a href="#" class="nav-capsule-link active">Home</a>
+                <a href="#sandbox-anchor" class="nav-capsule-link">Sandbox</a>
+                <a href="#about-anchor" class="nav-capsule-link">About</a>
             </div>
-            <div class="nav-buttons" id="authNav" style="display: none;">
-                <button class="login-btn" id="navReminderBtnAuth"><i class="fas fa-bell"></i> Reminders</button>
-                <button class="profile-btn" id="navProfileBtn"><i class="fas fa-user-circle"></i> <span id="navUserName">Profile</span></button>
-                <button class="logout-btn" id="navLogoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+
+            <div class="nav-actions" id="guestNav">
+                <button class="nav-link-btn" id="navLoginBtn">Login</button>
+                <button class="book-call-btn" id="navRegisterBtn">GET STARTED &nbsp;↗</button>
+            </div>
+            <div class="nav-actions" id="authNav" style="display: none;">
+                <button class="nav-link-btn" id="navReminderBtnAuth"><i class="fas fa-bell"></i> Reminders</button>
+                <button class="nav-link-btn" id="navProfileBtn"><i class="fas fa-user-circle"></i> <span id="navUserName">Profile</span></button>
+                <button class="book-call-btn" id="navLogoutBtn">LOGOUT &nbsp;↗</button>
             </div>
         </div>
     </nav>
@@ -40,67 +51,69 @@
     <section class="hero-section">
         <div class="hero-grid">
             <div class="hero-content">
-                <h1 class="hero-title reveal-up">The AI-Powered Medical Guardian</h1>
+                <div class="trust-pill reveal-up">
+                    <span class="trust-badge">New</span>
+                    <span class="trust-text">Trusted by 45+ expert medical teams</span>
+                </div>
+                
+                <h1 class="hero-title reveal-up">Revolutionizing Healthcare with AI</h1>
                 
                 <p class="hero-description reveal-up">
-                    MedVision+ leverages bleeding-edge large language models and vision processing to instantly parse pill composition directly from your camera, meticulously cross-checking ingredients against your personalized allergy profile to guarantee your medical safety.
+                    Bleeding-edge large language models and vision processing to instantly parse pill composition directly from your camera, meticulously cross-checking ingredients against your personalized allergy profile to guarantee safety.
                 </p>
-
-                <div class="tech-stack reveal-up">
-                    <div class="tech-item">
-                        <svg class="tech-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M12 5v14"/><path d="M12 12h6"/><path d="M12 12H6"/></svg>
-                        <span>LLM Parsing</span>
-                    </div>
-                    <div class="tech-item">
-                        <svg class="tech-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                        <span>Allergy Tracking</span>
-                    </div>
-                    <div class="tech-item">
-                        <svg class="tech-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                        <span>Secure Profiles</span>
-                    </div>
-                </div>
 
                 <div class="hero-actions reveal-up">
                     <button class="cta-button" id="openSearchBtn">
-                        <i class="fas fa-search"></i> Search Medicine Info
+                        START DIAGNOSIS
                     </button>
                     <a href="#sandbox-anchor" class="secondary-cta-btn">
-                        <i class="fas fa-flask-vial"></i> Try Sandbox
+                        TRY SANDBOX
                     </a>
                 </div>
             </div>
 
             <div class="hero-mockup reveal-up">
-                <div class="phone-frame glass-effect">
-                    <div class="phone-screen">
-                        <div class="phone-header">
-                            <i class="fas fa-wifi"></i>
-                            <span>12:00 PM</span>
-                            <i class="fas fa-battery-three-quarters"></i>
+                <div class="dashboard-frame">
+                    <div class="dashboard-header">
+                        <div class="window-controls">
+                            <span class="dot dot-close"></span>
+                            <span class="dot dot-minimize"></span>
+                            <span class="dot dot-maximize"></span>
                         </div>
-                        <div class="phone-app-body">
-                            <div class="mock-scanner-view">
-                                <div class="scanning-subject">
-                                    <div class="mock-pill-pack">
-                                        <div class="pill-capsule red-pill"></div>
+                        <span class="dashboard-title-text">MedVision+ AI Safety Console</span>
+                    </div>
+                    <div class="dashboard-body">
+                        <div class="mock-scan-grid">
+                            <div class="mock-scan-left">
+                                <div class="mock-img-wrapper">
+                                    <div class="mock-scanning-pill-pack">
                                         <div class="pill-capsule red-pill"></div>
                                         <div class="pill-capsule yellow-pill"></div>
-                                        <div class="pill-capsule yellow-pill"></div>
                                     </div>
-                                    <div class="bounding-box glow-cyan">
-                                        <span class="box-label">Ceflox-D</span>
+                                    <div class="mock-bounding-box">
+                                        <span class="mock-box-label">Ceflox-D (Ciprofloxacin)</span>
                                     </div>
-                                    <div class="scan-laser"></div>
+                                    <div class="mock-laser"></div>
                                 </div>
                             </div>
-                            <div class="mock-results-card glass-card">
-                                <div class="mock-results-header">
-                                    <span class="mock-badge badge-warning"><i class="fas fa-exclamation-triangle"></i> Allergen Clash</span>
-                                    <h4 class="mock-pill-title">Ceflox-D (Ciprofloxacin)</h4>
+                            <div class="mock-scan-right">
+                                <div class="mock-alert-card">
+                                    <div class="mock-alert-header">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                                        <span>Allergen Clash Detected</span>
+                                    </div>
+                                    <p class="mock-alert-desc">Contains <strong>Ciprofloxacin</strong> which clashes with your Penicillin / Quinolone allergy profile.</p>
                                 </div>
-                                <div class="mock-results-details">
-                                    <p>⚠️ Clash detected with allergy: <strong>Penicillin / Ciprofloxacin</strong></p>
+                                <div class="mock-suggestions">
+                                    <span class="suggestion-title">Recommended Safe Alternatives</span>
+                                    <div class="suggestion-item">
+                                        <span>Amoxicillin (500mg)</span>
+                                        <span class="price-tag">₹45.00</span>
+                                    </div>
+                                    <div class="suggestion-item">
+                                        <span>Azithromycin (500mg)</span>
+                                        <span class="price-tag">₹62.00</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -108,9 +121,32 @@
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <span>Discover More</span>
-            <i class="fas fa-chevron-down bounce"></i>
+        
+        <!-- Trust Logos Bottom Row -->
+        <div class="brand-row reveal-up">
+            <div class="brand-row-container">
+                <div class="brand-intro">
+                    <span>Trusted by<br>medical teams<br>and hospitals</span>
+                </div>
+                <div class="brand-logos">
+                    <div class="brand-logo-item">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+                        <span>Invert</span>
+                    </div>
+                    <div class="brand-logo-item">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                        <span>hues</span>
+                    </div>
+                    <div class="brand-logo-item">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        <span>Pollinate</span>
+                    </div>
+                    <div class="brand-logo-item">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><path d="M4.5 16.5c-1.5 1.26-2.5 3.19-2.5 5.5h20c0-2.31-1-4.24-2.5-5.5M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+                        <span>Acme</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
