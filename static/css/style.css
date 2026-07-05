@@ -3493,6 +3493,24 @@ p, span, label, .feature-text, .static-step p, .about-text, .footer-text, .panel
     color: var(--text-muted) !important;
 }
 
+/* Default Hamburger state (Desktop) */
+.hamburger-btn {
+    display: none !important;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: 8px;
+    transition: all 0.2s ease;
+}
+.hamburger-btn:hover {
+    opacity: 0.8;
+}
+
 /* ==========================================
    MOBILE & RESPONSIVE DESIGN OPTIMIZATIONS
    ========================================== */
@@ -3546,15 +3564,21 @@ p, span, label, .feature-text, .static-step p, .about-text, .footer-text, .panel
 }
 
 @media (max-width: 768px) {
-    /* Responsive Header & Navigation */
+    /* Show Hamburger on mobile */
+    .hamburger-btn {
+        display: flex !important;
+    }
+    
+    /* Reset mobile navbar layout */
     .nav-container {
         display: flex !important;
         flex-direction: row !important;
-        flex-wrap: wrap !important;
+        flex-wrap: nowrap !important;
         justify-content: space-between !important;
         align-items: center !important;
-        padding: 0 16px !important;
-        gap: 12px !important;
+        padding: 0 20px !important;
+        height: 70px !important;
+        position: relative !important;
     }
     
     .logo-container {
@@ -3564,22 +3588,85 @@ p, span, label, .feature-text, .static-step p, .about-text, .footer-text, .panel
     .nav-actions-wrap {
         order: 2 !important;
         display: flex !important;
+        flex-direction: row !important;
         align-items: center !important;
-        gap: 8px !important;
+        gap: 4px !important;
     }
     
+    /* Position mobile drawer elements */
     .nav-capsule {
-        order: 3 !important;
-        width: 100% !important;
-        justify-content: center !important;
-        margin: 6px 0 0 0 !important;
-        padding: 4px !important;
-        gap: 8px !important;
+        position: absolute !important;
+        top: 70px !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: var(--navbar-bg) !important;
+        backdrop-filter: blur(12px) !important;
+        border-top: 1px solid var(--border-color) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 16px !important;
+        gap: 12px !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        transform: translateY(-10px) !important;
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        box-shadow: none !important;
+        z-index: 98 !important;
     }
     
+    .nav-actions-wrap .nav-actions {
+        position: absolute !important;
+        top: 210px !important; /* Stacks right below capsule menu */
+        left: 0 !important;
+        right: 0 !important;
+        background: var(--navbar-bg) !important;
+        backdrop-filter: blur(12px) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 16px !important;
+        gap: 12px !important;
+        margin: 0 !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        transform: translateY(-10px) !important;
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        border-bottom: 1px solid var(--border-color) !important;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05) !important;
+        z-index: 99 !important;
+    }
+    
+    /* Toggled state classes */
+    .mobile-menu-active .nav-capsule {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: translateY(0) !important;
+    }
+    
+    .mobile-menu-active .nav-actions-wrap .nav-actions {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: translateY(0) !important;
+    }
+    
+    /* Clean up link typography & buttons inside mobile drawer */
     .nav-capsule-link {
-        padding: 6px 12px !important;
-        font-size: 13px !important;
+        width: 100% !important;
+        text-align: center !important;
+        padding: 10px !important;
+    }
+    
+    .nav-actions .nav-link-btn, .nav-actions .book-call-btn,
+    .nav-actions .nav-link, .nav-actions .btn-primary {
+        width: 100% !important;
+        max-width: 280px !important;
+        text-align: center !important;
+        justify-content: center !important;
+        padding: 10px !important;
+        margin: 0 !important;
     }
     
     /* Feature Grid Stacking */
@@ -3642,48 +3729,6 @@ p, span, label, .feature-text, .static-step p, .about-text, .footer-text, .panel
         text-align: center !important;
         justify-content: center !important;
         margin: 0 !important;
-    }
-}
-
-@media (max-width: 480px) {
-    /* Highly Compact Mobile Navbar (Stacking Rows) */
-    .nav-container {
-        justify-content: center !important;
-        gap: 8px !important;
-        padding: 8px 12px !important;
-    }
-    
-    .logo-container {
-        width: 100% !important;
-        justify-content: center !important;
-        text-align: center !important;
-    }
-    
-    .nav-capsule {
-        order: 2 !important;
-        margin: 4px 0 !important;
-    }
-    
-    .nav-actions-wrap {
-        order: 3 !important;
-        width: 100% !important;
-        justify-content: center !important;
-        margin-top: 4px !important;
-        gap: 8px !important;
-    }
-    
-    .nav-actions {
-        gap: 6px !important;
-    }
-    
-    .nav-actions .nav-link {
-        font-size: 11px !important;
-        padding: 4px 6px !important;
-    }
-    
-    .nav-actions .btn-primary {
-        font-size: 11px !important;
-        padding: 6px 10px !important;
     }
 }
 

@@ -1101,3 +1101,42 @@ if (aboutSection) {
     observer.observe(aboutSection);
 }
 
+// ---- Mobile Hamburger Menu Toggle ----
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const navbar = document.querySelector('.navbar');
+
+if (hamburgerBtn && navbar) {
+    hamburgerBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isActive = navbar.classList.toggle('mobile-menu-active');
+        const icon = hamburgerBtn.querySelector('i');
+        if (icon) {
+            icon.className = isActive ? 'fas fa-times' : 'fas fa-bars';
+        }
+    });
+
+    // Close menu when clicking outside of the navbar
+    document.addEventListener('click', (e) => {
+        if (!navbar.contains(e.target)) {
+            navbar.classList.remove('mobile-menu-active');
+            const icon = hamburgerBtn.querySelector('i');
+            if (icon) {
+                icon.className = 'fas fa-bars';
+            }
+        }
+    });
+
+    // Auto-close menu when clicking any nav links or buttons inside the drawer
+    const navItems = navbar.querySelectorAll('.nav-capsule-link, .nav-link-btn, .book-call-btn, .nav-actions .nav-link, .nav-actions .btn-primary');
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            navbar.classList.remove('mobile-menu-active');
+            const icon = hamburgerBtn.querySelector('i');
+            if (icon) {
+                icon.className = 'fas fa-bars';
+            }
+        });
+    });
+}
+
+
