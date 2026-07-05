@@ -3831,6 +3831,26 @@ p, span, label, .feature-text, .static-step p, .about-text, .footer-text, .panel
    THEME COMPATIBILITY OVERRIDES (LIGHT MODE)
    ========================================== */
 
+/* Search Method Tabs */
+.search-method-tabs {
+    background: var(--capsule-bg) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+.method-tab {
+    color: var(--text-muted) !important;
+}
+
+.method-tab.active {
+    background: linear-gradient(135deg, #0F766E 0%, #0D9488 100%) !important;
+    color: #FFFFFF !important;
+}
+
+.method-tab:hover:not(.active) {
+    background: rgba(13, 148, 136, 0.1) !important;
+    color: var(--text-primary) !important;
+}
+
 /* Input Fields & Placeholders */
 .search-input {
     background: var(--capsule-bg) !important;
@@ -3839,7 +3859,7 @@ p, span, label, .feature-text, .static-step p, .about-text, .footer-text, .panel
 }
 .search-input::placeholder {
     color: var(--text-muted) !important;
-    opacity: 0.6 !important;
+    opacity: 0.9 !important;
 }
 
 /* Results Content Values & Bullet Lists */
@@ -3863,5 +3883,6 @@ p, span, label, .feature-text, .static-step p, .about-text, .footer-text, .panel
 .loading {
     color: var(--text-primary) !important;
 }
+
 
 
