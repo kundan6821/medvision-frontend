@@ -3492,3 +3492,285 @@ p, span, label, .feature-text, .static-step p, .about-text, .footer-text, .panel
 .footer-text {
     color: var(--text-muted) !important;
 }
+
+/* ==========================================
+   MOBILE & RESPONSIVE DESIGN OPTIMIZATIONS
+   ========================================== */
+
+@media (max-width: 900px) {
+    /* Hero Grid Layout Stacking */
+    .hero-grid {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+        text-align: center !important;
+    }
+    
+    .hero-left {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    
+    .hero-title {
+        font-size: 38px !important;
+        line-height: 1.25 !important;
+    }
+    
+    .hero-description {
+        font-size: 16px !important;
+        max-width: 100% !important;
+    }
+    
+    .hero-actions {
+        justify-content: center !important;
+        width: 100% !important;
+    }
+    
+    .hero-right {
+        width: 100% !important;
+        max-width: 480px !important;
+        margin: 0 auto !important;
+    }
+    
+    /* Static Steps (How it Works) */
+    .static-steps {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 24px !important;
+    }
+    
+    .step-divider {
+        transform: rotate(90deg) !important;
+        margin: 0 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Responsive Header & Navigation */
+    .nav-container {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 0 16px !important;
+        gap: 12px !important;
+    }
+    
+    .logo-container {
+        order: 1 !important;
+    }
+    
+    .nav-actions-wrap {
+        order: 2 !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+    }
+    
+    .nav-capsule {
+        order: 3 !important;
+        width: 100% !important;
+        justify-content: center !important;
+        margin: 6px 0 0 0 !important;
+        padding: 4px !important;
+        gap: 8px !important;
+    }
+    
+    .nav-capsule-link {
+        padding: 6px 12px !important;
+        font-size: 13px !important;
+    }
+    
+    /* Feature Grid Stacking */
+    .features-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    
+    /* Sandbox Form controls */
+    .sandbox-controls {
+        flex-direction: column !important;
+        gap: 16px !important;
+        padding: 20px !important;
+    }
+    
+    .sandbox-input-wrapper {
+        width: 100% !important;
+    }
+    
+    .sandbox-btn {
+        width: 100% !important;
+    }
+    
+    /* Stats grid */
+    .stats-container {
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+    
+    .stat-item {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 600px) {
+    /* 3D Dashboard Mockup Stacking */
+    .dashboard-frame {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+        padding: 16px !important;
+    }
+    
+    .dashboard-panel {
+        padding: 16px !important;
+    }
+}
+
+@media (max-width: 640px) {
+    /* Hero CTA Button Stacking */
+    .hero-actions {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 12px !important;
+        width: 100% !important;
+    }
+    
+    .hero-actions .cta-button, .hero-actions .secondary-cta-btn {
+        width: 100% !important;
+        max-width: 280px !important;
+        text-align: center !important;
+        justify-content: center !important;
+        margin: 0 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Highly Compact Mobile Navbar (Stacking Rows) */
+    .nav-container {
+        justify-content: center !important;
+        gap: 8px !important;
+        padding: 8px 12px !important;
+    }
+    
+    .logo-container {
+        width: 100% !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+    
+    .nav-capsule {
+        order: 2 !important;
+        margin: 4px 0 !important;
+    }
+    
+    .nav-actions-wrap {
+        order: 3 !important;
+        width: 100% !important;
+        justify-content: center !important;
+        margin-top: 4px !important;
+        gap: 8px !important;
+    }
+    
+    .nav-actions {
+        gap: 6px !important;
+    }
+    
+    .nav-actions .nav-link {
+        font-size: 11px !important;
+        padding: 4px 6px !important;
+    }
+    
+    .nav-actions .btn-primary {
+        font-size: 11px !important;
+        padding: 6px 10px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Modals & Dialogs Layout */
+    .modal-content {
+        padding: 20px !important;
+        margin: 10px auto !important;
+        width: 94% !important;
+        max-height: 95vh !important;
+        overflow-y: auto !important;
+    }
+    
+    .modal-title {
+        font-size: 20px !important;
+        padding: 20px 20px 10px !important;
+    }
+    
+    /* Tabs inside search modal */
+    .search-method-tabs {
+        margin: 0 10px !important;
+        border-radius: 8px !important;
+    }
+    
+    .method-tab {
+        padding: 12px 6px !important;
+        font-size: 13px !important;
+    }
+    
+    .method-tab i {
+        margin-bottom: 4px !important;
+        font-size: 15px !important;
+    }
+    
+    /* Search Form Inputs */
+    .search-input-group {
+        flex-direction: column !important;
+        gap: 12px !important;
+        padding: 0 10px !important;
+    }
+    
+    .search-input-group .input-wrapper {
+        width: 100% !important;
+    }
+    
+    .search-input-group .action-btn {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 14px !important;
+    }
+    
+    /* Allergy Clash Alerts (Prevent character wrapping) */
+    .allergy-alert-box {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 12px !important;
+        padding: 16px 20px !important;
+    }
+    
+    .allergy-icon-wrapper {
+        width: 44px !important;
+        height: 44px !important;
+        font-size: 20px !important;
+    }
+    
+    /* Dynamic Results Flex Header Wrapping */
+    .results-container div[style*="display: flex"] {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+        padding: 15px 10px !important;
+    }
+    
+    .results-container button {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 10px !important;
+    }
+    
+    /* Info grid details */
+    .info-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+    }
+    
+    .results-container {
+        padding: 12px !important;
+    }
+}
+
