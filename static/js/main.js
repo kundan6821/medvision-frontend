@@ -4,6 +4,8 @@ const openBtn = document.getElementById('openSearchBtn');
 const closeBtn = document.querySelector('.close-modal');
 const searchBtn = document.getElementById('searchBtn');
 const uploadBtn = document.getElementById('uploadBtn');
+const cameraBtn = document.getElementById('cameraBtn');
+const cameraInput = document.getElementById('cameraInput');
 const medicineInput = document.getElementById('medicineInput');
 const imageInput = document.getElementById('imageInput');
 const uploadArea = document.getElementById('uploadArea');
@@ -61,6 +63,17 @@ imageInput.addEventListener('change', (e) => {
         handleFileSelect(e.target.files[0]);
     }
 });
+
+if (cameraBtn && cameraInput) {
+    cameraBtn.addEventListener('click', () => {
+        cameraInput.click();
+    });
+    cameraInput.addEventListener('change', (e) => {
+        if (e.target.files.length > 0) {
+            handleFileSelect(e.target.files[0]);
+        }
+    });
+}
 
 function handleFileSelect(file) {
     if (!file.type.startsWith('image/')) {
