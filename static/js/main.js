@@ -769,9 +769,18 @@ document.querySelectorAll('.reveal-up').forEach(el => {
 // ==========================================
 
 const reminderModal = document.getElementById('reminderModal');
-document.getElementById('navReminderBtnGuest').addEventListener('click', openReminderModal);
-document.getElementById('navReminderBtnAuth').addEventListener('click', openReminderModal);
-document.getElementById('addReminderBtn').addEventListener('click', addReminder);
+const navReminderBtnGuest = document.getElementById('navReminderBtnGuest');
+if (navReminderBtnGuest) {
+    navReminderBtnGuest.addEventListener('click', openReminderModal);
+}
+const navReminderBtnAuth = document.getElementById('navReminderBtnAuth');
+if (navReminderBtnAuth) {
+    navReminderBtnAuth.addEventListener('click', openReminderModal);
+}
+const addReminderBtn = document.getElementById('addReminderBtn');
+if (addReminderBtn) {
+    addReminderBtn.addEventListener('click', addReminder);
+}
 
 function openReminderModal() {
     reminderModal.style.display = 'block';
@@ -1011,7 +1020,7 @@ if (themeToggleBtn) {
     const moonIcon = themeToggleBtn.querySelector('.moon-icon');
     
     // Initial UI state setup
-    if (document.body.classList.contains('dark-theme')) {
+    if (document.documentElement.classList.contains('dark-theme')) {
         sunIcon.style.display = 'block';
         moonIcon.style.display = 'none';
     } else {
@@ -1020,7 +1029,7 @@ if (themeToggleBtn) {
     }
     
     themeToggleBtn.addEventListener('click', () => {
-        const isDark = document.body.classList.toggle('dark-theme');
+        const isDark = document.documentElement.classList.toggle('dark-theme');
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
         if (isDark) {
             sunIcon.style.display = 'block';

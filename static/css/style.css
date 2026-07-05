@@ -2744,7 +2744,7 @@ h1, h2, h3, h4, h5, h6, .logo-text, .scan-title, .feature-title, .sandbox-title 
     --button-hover: #27272A;
 }
 
-body.dark-theme {
+.dark-theme {
     --bg-color: #09090B;
     --grid-color: rgba(255, 255, 255, 0.03);
     --text-primary: #F4F4F5;
