@@ -2807,6 +2807,14 @@ p, span, label, .feature-text, .static-step p, .about-text, .footer-text, .panel
     color: var(--text-primary) !important;
 }
 
+.nav-menu-drawer {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 40px;
+}
+
 .logo-asterisk {
     margin-right: 8px;
     color: var(--text-primary);
@@ -3594,7 +3602,7 @@ p, span, label, .feature-text, .static-step p, .about-text, .footer-text, .panel
     }
     
     /* Position mobile drawer elements */
-    .nav-capsule {
+    .nav-menu-drawer {
         position: absolute !important;
         top: 70px !important;
         left: 0 !important;
@@ -3602,71 +3610,71 @@ p, span, label, .feature-text, .static-step p, .about-text, .footer-text, .panel
         background: var(--navbar-bg) !important;
         backdrop-filter: blur(12px) !important;
         border-top: 1px solid var(--border-color) !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        padding: 16px !important;
-        gap: 12px !important;
-        margin: 0 !important;
-        border-radius: 0 !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-        transform: translateY(-10px) !important;
-        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
-        box-shadow: none !important;
-        z-index: 98 !important;
-    }
-    
-    .nav-actions-wrap .nav-actions {
-        position: absolute !important;
-        top: 210px !important; /* Stacks right below capsule menu */
-        left: 0 !important;
-        right: 0 !important;
-        background: var(--navbar-bg) !important;
-        backdrop-filter: blur(12px) !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        padding: 16px !important;
-        gap: 12px !important;
-        margin: 0 !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-        transform: translateY(-10px) !important;
-        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
         border-bottom: 1px solid var(--border-color) !important;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 24px 20px !important;
+        gap: 20px !important;
+        margin: 0 !important;
+        
+        /* Animation off-state */
+        opacity: 0 !important;
+        pointer-events: none !important;
+        transform: translateY(-10px) !important;
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08) !important;
         z-index: 99 !important;
     }
     
-    /* Toggled state classes */
-    .mobile-menu-active .nav-capsule {
+    /* Open-state for Drawer */
+    .mobile-menu-active .nav-menu-drawer {
         opacity: 1 !important;
         pointer-events: auto !important;
         transform: translateY(0) !important;
     }
     
-    .mobile-menu-active .nav-actions-wrap .nav-actions {
-        opacity: 1 !important;
-        pointer-events: auto !important;
-        transform: translateY(0) !important;
+    /* Make elements stack inside the drawer */
+    .nav-menu-drawer .nav-capsule {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 12px !important;
+        width: 100% !important;
+        background: none !important;
+        border: none !important;
+        padding: 0 !important;
+        box-shadow: none !important;
     }
     
-    /* Clean up link typography & buttons inside mobile drawer */
-    .nav-capsule-link {
+    .nav-menu-drawer .nav-capsule-link {
         width: 100% !important;
         text-align: center !important;
-        padding: 10px !important;
+        padding: 12px !important;
+        font-size: 14px !important;
     }
     
-    .nav-actions .nav-link-btn, .nav-actions .book-call-btn,
-    .nav-actions .nav-link, .nav-actions .btn-primary {
+    .nav-menu-drawer .nav-actions {
+        display: flex;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 12px !important;
+        width: 100% !important;
+        border-top: 1px solid var(--border-color) !important;
+        padding-top: 20px !important;
+    }
+    
+    .nav-menu-drawer .nav-actions .nav-link-btn,
+    .nav-menu-drawer .nav-actions .book-call-btn,
+    .nav-menu-drawer .nav-actions .nav-link,
+    .nav-menu-drawer .nav-actions .btn-primary {
         width: 100% !important;
         max-width: 280px !important;
         text-align: center !important;
         justify-content: center !important;
-        padding: 10px !important;
+        padding: 12px !important;
         margin: 0 !important;
+        font-size: 13px !important;
     }
     
     /* Feature Grid Stacking */

@@ -37,10 +37,22 @@
                 <span class="logo-text">MedVision+</span>
             </div>
             
-            <div class="nav-capsule">
-                <a href="#" class="nav-capsule-link active">Home</a>
-                <a href="#sandbox-anchor" class="nav-capsule-link">Sandbox</a>
-                <a href="#about-anchor" class="nav-capsule-link">About</a>
+            <!-- Group everything that drops down into a single drawer container -->
+            <div class="nav-menu-drawer" id="navMenuDrawer">
+                <div class="nav-capsule">
+                    <a href="#" class="nav-capsule-link active">Home</a>
+                    <a href="#sandbox-anchor" class="nav-capsule-link">Sandbox</a>
+                    <a href="#about-anchor" class="nav-capsule-link">About</a>
+                </div>
+                <div class="nav-actions" id="guestNav">
+                    <button class="nav-link-btn" id="navLoginBtn">Login</button>
+                    <button class="book-call-btn" id="navRegisterBtn">GET STARTED &nbsp;↗</button>
+                </div>
+                <div class="nav-actions" id="authNav" style="display: none;">
+                    <button class="nav-link-btn" id="navReminderBtnAuth"><i class="fas fa-bell"></i> Reminders</button>
+                    <button class="nav-link-btn" id="navProfileBtn"><i class="fas fa-user-circle"></i> <span id="navUserName">Profile</span></button>
+                    <button class="book-call-btn" id="navLogoutBtn">LOGOUT &nbsp;↗</button>
+                </div>
             </div>
 
             <div class="nav-actions-wrap">
@@ -51,15 +63,6 @@
                 <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle Menu">
                     <i class="fas fa-bars"></i>
                 </button>
-                <div class="nav-actions" id="guestNav">
-                    <button class="nav-link-btn" id="navLoginBtn">Login</button>
-                    <button class="book-call-btn" id="navRegisterBtn">GET STARTED &nbsp;↗</button>
-                </div>
-                <div class="nav-actions" id="authNav" style="display: none;">
-                    <button class="nav-link-btn" id="navReminderBtnAuth"><i class="fas fa-bell"></i> Reminders</button>
-                    <button class="nav-link-btn" id="navProfileBtn"><i class="fas fa-user-circle"></i> <span id="navUserName">Profile</span></button>
-                    <button class="book-call-btn" id="navLogoutBtn">LOGOUT &nbsp;↗</button>
-                </div>
             </div>
         </div>
     </nav>
