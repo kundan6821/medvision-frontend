@@ -3842,8 +3842,8 @@ p, span, label, .feature-text, .static-step p, .about-text, .footer-text, .panel
     opacity: 0.6 !important;
 }
 
-/* Results Content Values */
-.info-value {
+/* Results Content Values & Bullet Lists */
+.info-value, .result-section p, .result-section li {
     color: var(--text-primary) !important;
 }
 
