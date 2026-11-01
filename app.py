@@ -3,7 +3,7 @@ import requests, json, os
 
 app = Flask(__name__)
 
-BACKEND_URL = os.getenv('BACKEND_URL', 'https://medvision-backend-egoh.onrender.com').rstrip('/')
+BACKEND_URL = os.getenv('BACKEND_URL', 'http://localhost:3000').rstrip('/')
 MEDICINE_API_URL = f'{BACKEND_URL}/api/medicine'
 REMINDERS_FILE = os.path.join(os.path.dirname(__file__), 'reminders.json')
 
@@ -19,7 +19,7 @@ def save_reminders(reminders):
 
 @app.route('/')
 def index():
-    backend_url = os.getenv('BACKEND_URL', 'https://medvision-backend-egoh.onrender.com').rstrip('/')
+    backend_url = os.getenv('BACKEND_URL', 'http://localhost:3000').rstrip('/')
     return render_template('index.html', backend_url=backend_url)
 
 @app.route('/api/medicine/search', methods=['GET'])

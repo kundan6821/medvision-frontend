@@ -551,7 +551,13 @@ const authNav = document.getElementById('authNav');
 const navUserName = document.getElementById('navUserName');
 
 // API URL (Node Server)
-const AUTH_API = (window.BACKEND_URL || 'https://medvision-backend-egoh.onrender.com').replace(/\/$/, '') + '/api';
+let resolvedBackendUrl = window.BACKEND_URL || 'http://localhost:3000';
+if (window.location.hostname && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+    if (resolvedBackendUrl.includes('localhost') || resolvedBackendUrl.includes('127.0.0.1')) {
+        resolvedBackendUrl = `${window.location.protocol}//${window.location.hostname}:3000`;
+    }
+}
+const AUTH_API = resolvedBackendUrl.replace(/\/$/, '') + '/api';
 
 // State
 let currentUser = null;
