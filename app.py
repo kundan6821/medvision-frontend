@@ -34,12 +34,14 @@ def search_medicine():
         headers['Authorization'] = auth_header
         
     try:
-        response = requests.get(f'{MEDICINE_API_URL}/info', params={'name': medicine_name}, headers=headers)
+        response = requests.get(f'{MEDICINE_API_URL}/info', params={'name': medicine_name}, headers=headers, timeout=45)
         try:
             data = response.json()
         except ValueError:
             return jsonify({'error': f'Backend service is temporarily unavailable (Status {response.status_code}). Please try again.'}), 502
         return jsonify(data), response.status_code
+    except requests.exceptions.Timeout:
+        return jsonify({'error': 'Medicine search timed out. Please try again.'}), 504
     except requests.exceptions.ConnectionError:
         return jsonify({'error': 'Medicine API service is not available. Please ensure the backend is running on port 3000.'}), 503
     except Exception as e:
@@ -61,12 +63,14 @@ def upload_medicine_image():
             headers['Authorization'] = auth_header
             
         files = {'image': (file.filename, file.stream, file.mimetype)}
-        response = requests.post(f'{MEDICINE_API_URL}/upload', files=files, headers=headers)
+        response = requests.post(f'{MEDICINE_API_URL}/upload', files=files, headers=headers, timeout=75)
         try:
             data = response.json()
         except ValueError:
             return jsonify({'error': f'Backend service is temporarily unavailable (Status {response.status_code}). Please try again.'}), 502
         return jsonify(data), response.status_code
+    except requests.exceptions.Timeout:
+        return jsonify({'error': 'Image analysis timed out. Please try again with a smaller or clearer image.'}), 504
     except requests.exceptions.ConnectionError:
         return jsonify({'error': 'Medicine API service is not available. Please ensure the backend is running on port 3000.'}), 503
     except Exception as e:

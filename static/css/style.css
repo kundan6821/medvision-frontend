@@ -892,8 +892,8 @@ h1, h2, h3, h4, h5, h6, .logo-text, .scan-title, .feature-title, .sandbox-title 
     position: relative;
     margin: 3% auto;
     padding: 0;
-    width: 95%;
-    max-width: 800px;
+    width: 92%;
+    max-width: 880px;
     border-radius: 20px;
     animation: modalSlideIn 0.3s ease-out;
     max-height: 90vh;
@@ -1238,12 +1238,21 @@ h1, h2, h3, h4, h5, h6, .logo-text, .scan-title, .feature-title, .sandbox-title 
 
 .modal-content {
     position: relative;
-    margin: 5% auto;
-    padding: 40px;
-    width: 90%;
-    max-width: 600px;
+    margin: 3.5vh auto;
+    padding: 35px 40px;
+    width: 92%;
+    max-width: 880px;
     border-radius: 20px;
     animation: modalSlideIn 0.3s ease-out;
+}
+
+#searchModal .modal-content {
+    max-width: 880px;
+    width: 92%;
+}
+
+.auth-modal {
+    max-width: 440px !important;
 }
 
 @keyframes modalSlideIn {
