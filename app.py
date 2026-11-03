@@ -32,9 +32,14 @@ def search_medicine():
     auth_header = request.headers.get('Authorization')
     if auth_header:
         headers['Authorization'] = auth_header
+
+    params = {'name': medicine_name}
+    allergies = request.args.get('allergies')
+    if allergies:
+        params['allergies'] = allergies
         
     try:
-        response = requests.get(f'{MEDICINE_API_URL}/info', params={'name': medicine_name}, headers=headers, timeout=45)
+        response = requests.get(f'{MEDICINE_API_URL}/info', params=params, headers=headers, timeout=45)
         try:
             data = response.json()
         except ValueError:
@@ -63,7 +68,11 @@ def upload_medicine_image():
             headers['Authorization'] = auth_header
             
         files = {'image': (file.filename, file.stream, file.mimetype)}
-        response = requests.post(f'{MEDICINE_API_URL}/upload', files=files, headers=headers, timeout=75)
+        data = {}
+        if 'allergies' in request.form:
+            data['allergies'] = request.form['allergies']
+
+        response = requests.post(f'{MEDICINE_API_URL}/upload', files=files, data=data, headers=headers, timeout=75)
         try:
             data = response.json()
         except ValueError:

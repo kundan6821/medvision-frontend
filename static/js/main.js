@@ -175,6 +175,9 @@ async function analyzeImage() {
     
     const formData = new FormData();
     formData.append('image', fileToUpload);
+    if (currentUser && currentUser.allergies && currentUser.allergies.length > 0) {
+        formData.append('allergies', currentUser.allergies.join(','));
+    }
 
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 70000);
@@ -269,7 +272,12 @@ async function searchMedicine() {
         const token = localStorage.getItem('medvision_token');
         if (token) headers['Authorization'] = `Bearer ${token}`;
 
-        const response = await fetch(`/api/medicine/search?name=${encodeURIComponent(medicineName)}`, { headers });
+        let searchUrl = `/api/medicine/search?name=${encodeURIComponent(medicineName)}`;
+        if (currentUser && currentUser.allergies && currentUser.allergies.length > 0) {
+            searchUrl += `&allergies=${encodeURIComponent(currentUser.allergies.join(','))}`;
+        }
+
+        const response = await fetch(searchUrl, { headers });
         const data = await response.json();
         
         if (!response.ok) {
@@ -339,16 +347,30 @@ function displayResults(data, isImageSearch = false) {
     }
     
     // Allergy Alert
-    if (data.allergy_alert) {
+    if (data.allergy_alert || (currentUser && currentUser.allergies && currentUser.allergies.length > 0)) {
         // Robust state parsing for the API boolean outputs
         let isSafe = true;
-        const rawWarning = data.allergy_alert.warning;
+        let conflictDetails = data.allergy_alert ? data.allergy_alert.details : null;
+        const rawWarning = data.allergy_alert ? data.allergy_alert.warning : false;
         
         if (typeof rawWarning === 'boolean') {
             isSafe = !rawWarning; // If warning is true, it is NOT safe.
         } else if (typeof rawWarning === 'string') {
             const warnStr = rawWarning.toLowerCase().trim();
             isSafe = (warnStr === 'false' || warnStr.includes('safe to take') || warnStr === '');
+        }
+
+        // Deterministic client-side safety guard against user profile
+        if (currentUser && currentUser.allergies && currentUser.allergies.length > 0) {
+            const medText = `${medicineInfo.brand_name || ''} ${medicineInfo.composition || ''} ${ocrInfo?.detected_medicine || ''}`.toLowerCase();
+            for (const allergy of currentUser.allergies) {
+                const a = (allergy || '').trim().toLowerCase();
+                if (a && medText.includes(a)) {
+                    isSafe = false;
+                    conflictDetails = `⚠️ DANGER: Contains "${allergy}" which conflicts directly with your logged allergy profile! Do NOT take without medical advice.`;
+                    break;
+                }
+            }
         }
 
         const statusClass = isSafe ? 'allergy-safe' : 'allergy-danger';
@@ -361,8 +383,8 @@ function displayResults(data, isImageSearch = false) {
         html += `       <h3 class="allergy-alert-title"><i class="fas fa-heartbeat"></i> Allergy Analysis</h3>`;
         html += `       <p class="allergy-alert-warning">${displayWarning}</p>`;
         
-        if (!isSafe && data.allergy_alert.details) {
-            html += `       <p class="allergy-alert-details"><i class="fas fa-info-circle"></i> ${data.allergy_alert.details}</p>`;
+        if (!isSafe && conflictDetails) {
+            html += `       <p class="allergy-alert-details"><i class="fas fa-info-circle"></i> ${conflictDetails}</p>`;
         }
         
         html += `   </div>`;
